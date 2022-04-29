@@ -1,0 +1,42 @@
+MPLINK 4.43, Linker
+Linker Map File - Created Thu Apr 28 23:44:42 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000064
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000063      
+            100 out of 33048 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+        BOTAO_RB3_APAGADO   0x000034    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+        BOTAO_RB4_APAGADO   0x00004a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+        BOTAO_RB5_APAGADO   0x00005e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+                   INICIO   0x000004    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+                     MAIN   0x00001a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+             VERIFICA_MP4   0x000022    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000004    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+                     MAIN   0x00001a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+             VERIFICA_MP4   0x000022    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+        BOTAO_RB3_APAGADO   0x000034    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+        BOTAO_RB4_APAGADO   0x00004a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+        BOTAO_RB5_APAGADO   0x00005e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX1\NAC2_EX1.asm
+
+

@@ -1,0 +1,40 @@
+MPLINK 4.43, Linker
+Linker Map File - Created Thu Apr 28 23:41:05 2022
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000034
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000033      
+            52 out of 33048 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000004    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+             LIBERAR_AGUA   0x00002a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+                     MAIN   0x00000e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+          VERIFICAR_BOTAO   0x00001c    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+          VERIFICA_ESTADO   0x000016    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000004    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+                     MAIN   0x00000e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+          VERIFICA_ESTADO   0x000016    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+          VERIFICAR_BOTAO   0x00001c    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+             LIBERAR_AGUA   0x00002a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+
+
