@@ -1,4 +1,4 @@
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE  1
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -42,165 +42,166 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 Warning[205]: Found directive in column 1. (CBLOCK)
                       00027 CBLOCK 0x80            ; ENDEREÇO INICIAL DA MEMÓRIA DE DADOS
   00000080            00028     FILTRO_BOT         ; VARIÁVEL FILTRO PARA O BOTÃO
-  00000081            00029     RECIPIENTES_E_VALVULA                  ; VARIÁVEL QUE ENGLOBA O ESTADO DOS RECIPIENTES E DA VALVULA
-                      00030 
+  00000081            00029         FILTRO_BOT2
+  00000082            00030     RECIPIENTES_E_VALVULA                  ; VARIÁVEL QUE ENGLOBA O ESTADO DOS RECIPIENTES E DA VALVULA
+                      00031 
 Warning[205]: Found directive in column 1. (ENDC)
-                      00031 ENDC
-                      00032 
-                      00033 ; 3.2 CONSTANTES
-                      00034 
-  000000FF            00035 T_FILTRO EQU .255        ; CONSTANTE T_FILTRO COM 230 DECIMAL
-  00000000            00036 ZERO EQU B'00000000'    ; CONSTANTE COM VALOR ZERO
-                      00037 
-                      00038 ; 4. VETOR DE RESET
+                      00032 ENDC
+                      00033 
+                      00034 ; 3.2 CONSTANTES
+                      00035 
+  000000FF            00036 T_FILTRO EQU .255        ; CONSTANTE T_FILTRO COM 230 DECIMAL
+  00000000            00037 ZERO EQU B'00000000'    ; CONSTANTE COM VALOR ZERO
+                      00038 
+                      00039 ; 4. VETOR DE RESET
 Warning[205]: Found directive in column 1. (ORG)
-000000                00039 ORG 0x00 
+000000                00040 ORG 0x00 
 Warning[203]: Found opcode in column 1. (GOTO)
-000000 EF02 F000      00040 GOTO INICIO
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE  2
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00041 
-                      00042 ; 5. INÍCIO DO PROGRAMA 
-                      00043 ; CONFIGURAÇÕES INICIAIS (REGISTRADORES DE FUNÇÕES ;ESPECIAIS)
-000004                00044 INICIO
-000004 6A83           00045     CLRF PORTD             ; LIMPA PORTD (ESCREVE ZERO EM TODOS OS PINOS DO PORTD)
-000006 6B81           00046         CLRF RECIPIENTES_E_VALVULA
-                      00047 
-000008 0E18           00048     MOVLW B'00011000'     ; MOVE O VALOR BINÁRIO PARA O REGISTRADOR WORK 
-00000A 6E93           00049     MOVWF TRISB         ; DEFINE RB3 E RB4 COMO ENTRADA E DEMAIS COMO SAÍDA
-00000C 0E00           00050     MOVLW B'00000000'     ; MOVE O VALOR BINÁRIO PARA O REGISTRADOR WORK
-00000E 6E95           00051     MOVWF TRISD         ; DEFINE TODOS OS TERMINAIS DO PORTD COMO SAÍDA
-                      00052         
-000010 8083           00053         BSF LED_CIMA            ; DEFINE COMPARTIMENTO DE CIMA COMO CHEIO NO INICIO
-000012 8181           00054         BSF RECIP_CIMA
-                      00055         
-000014 8283           00056         BSF LED_BAIXO           ; DEFINE COMPARTIMENTO DE BAIXO COMO CHEIO NO INICIO
-000016 8381           00057         BSF RECIP_BAIXO
-                      00058 
-000018 9483           00059         BCF LED_VALVULA         ; DEFINE A VALVULA PARA NÃO FUNCIONAR NO INICIO
-                      00060 
-                      00061 ; 6. FUNÇÃO PRINCIPAL
-00001A                00062 MAIN
-00001A A181           00063         BTFSS RECIP_CIMA ;RECIPIENTE DE CIMA TEM AGUA?
-00001C EF17 F000      00064         GOTO CIMA_SEM_AGUA;NÃO, RECIPIENTE SUPERIOR SEM AGUA
-000020 EF1A F000      00065         GOTO CIMA_COM_AGUA;SIM,  RECIPIENTE SUPERIOR COM AGUA
+000000 EF02 F000      00041 GOTO INICIO
+                      00042 
+                      00043 ; 5. INÍCIO DO PROGRAMA 
+                      00044 ; CONFIGURAÇÕES INICIAIS (REGISTRADORES DE FUNÇÕES ;ESPECIAIS)
+000004                00045 INICIO
+000004 6A83           00046     CLRF PORTD             ; LIMPA PORTD (ESCREVE ZERO EM TODOS OS PINOS DO PORTD)
+000006 6B82           00047         CLRF RECIPIENTES_E_VALVULA
+                      00048 
+000008 0E18           00049     MOVLW B'00011000'     ; MOVE O VALOR BINÁRIO PARA O REGISTRADOR WORK 
+00000A 6E93           00050     MOVWF TRISB         ; DEFINE RB3 E RB4 COMO ENTRADA E DEMAIS COMO SAÍDA
+00000C 0E00           00051     MOVLW B'00000000'     ; MOVE O VALOR BINÁRIO PARA O REGISTRADOR WORK
+00000E 6E95           00052     MOVWF TRISD         ; DEFINE TODOS OS TERMINAIS DO PORTD COMO SAÍDA
+                      00053         
+000010 8083           00054         BSF LED_CIMA            ; DEFINE COMPARTIMENTO DE CIMA COMO CHEIO NO INICIO
+000012 8182           00055         BSF RECIP_CIMA
+                      00056         
+000014 8283           00057         BSF LED_BAIXO           ; DEFINE COMPARTIMENTO DE BAIXO COMO CHEIO NO INICIO
+000016 8382           00058         BSF RECIP_BAIXO
+                      00059 
+000018 9483           00060         BCF LED_VALVULA         ; DEFINE A VALVULA PARA NÃO FUNCIONAR NO INICIO
+                      00061 
+                      00062 ; 6. FUNÇÃO PRINCIPAL
+00001A                00063 MAIN
+00001A A182           00064         BTFSS RECIP_CIMA ;RECIPIENTE DE CIMA TEM AGUA?
+00001C EF17 F000      00065         GOTO CIMA_SEM_AGUA;NÃO, RECIPIENTE SUPERIOR SEM AGUA
+000020 EF1A F000      00066         GOTO CIMA_COM_AGUA;SIM,  RECIPIENTE SUPERIOR COM AGUA
 Warning[207]: Found label after column 1. (TESTA_BAIXO)
-000024                00066         TESTA_BAIXO;TESTAR BOTAO DO RECPIENTE INFERIOR
-000024 B381           00067         BTFSC RECIP_BAIXO ;RECIPIENTE DE BAIXO TEM AGUA?
-000026 EF20 F000      00068         GOTO BAIXO_COM_AGUA;SIM,RECIPIENTE INFERIOR COM AGUA
-00002A EF1D F000      00069         GOTO BAIXO_SEM_AGUA;NÃO,RECIPIENTE INFERIOR SEM AGUA            
-                      00070 
+000024                00067         TESTA_BAIXO;TESTAR BOTAO DO RECPIENTE INFERIOR
+000024 B382           00068         BTFSC RECIP_BAIXO ;RECIPIENTE DE BAIXO TEM AGUA?
+000026 EF20 F000      00069         GOTO BAIXO_COM_AGUA;SIM,RECIPIENTE INFERIOR COM AGUA
+00002A EF1D F000      00070         GOTO BAIXO_SEM_AGUA;NÃO,RECIPIENTE INFERIOR SEM AGUA            
+                      00071 
 Warning[207]: Found label after column 1. (CIMA_SEM_AGUA)
-00002E                00071         CIMA_SEM_AGUA
-00002E 9083           00072         BCF LED_CIMA
-                      00073         ;BCF RECIP_CIMA
-000030 EF12 F000      00074         GOTO TESTA_BAIXO
-                      00075 
+00002E                00072         CIMA_SEM_AGUA
+00002E 9083           00073         BCF LED_CIMA
+                      00074         ;BCF RECIP_CIMA
+000030 EF12 F000      00075         GOTO TESTA_BAIXO
+                      00076 
 Warning[207]: Found label after column 1. (CIMA_COM_AGUA)
-000034                00076         CIMA_COM_AGUA
-000034 8083           00077         BSF LED_CIMA
-                      00078         ;BSF RECIP_CIMA
-000036 EF12 F000      00079         GOTO TESTA_BAIXO
-                      00080         
+000034                00077         CIMA_COM_AGUA
+000034 8083           00078         BSF LED_CIMA
+                      00079         ;BSF RECIP_CIMA
+000036 EF12 F000      00080         GOTO TESTA_BAIXO
+                      00081         
 Warning[207]: Found label after column 1. (BAIXO_SEM_AGUA)
-00003A                00081         BAIXO_SEM_AGUA
-00003A 9283           00082         BCF LED_BAIXO
-                      00083         ;BCF RECIP_BAIXO
-00003C EF23 F000      00084         GOTO VERIFICA_VALVULA
-                      00085 
+00003A                00082         BAIXO_SEM_AGUA
+00003A 9283           00083         BCF LED_BAIXO
+                      00084         ;BCF RECIP_BAIXO
+00003C EF23 F000      00085         GOTO VERIFICA_VALVULA
+                      00086 
 Warning[207]: Found label after column 1. (BAIXO_COM_AGUA)
-000040                00086         BAIXO_COM_AGUA
-000040 8283           00087         BSF LED_BAIXO
-                      00088         ;BSF RECIP_BAIXO
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE  3
+000040                00087         BAIXO_COM_AGUA
+000040 8283           00088         BSF LED_BAIXO
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-000042 EF23 F000      00089         GOTO VERIFICA_VALVULA
-                      00090 
+                      00089         ;BSF RECIP_BAIXO
+000042 EF23 F000      00090         GOTO VERIFICA_VALVULA
+                      00091 
 Warning[207]: Found label after column 1. (VERIFICA_VALVULA)
-000046                00091         VERIFICA_VALVULA; CIMA=1, BAIXO =0
-000046 A181           00092         BTFSS RECIP_CIMA;RECIPIENTE DE CIMA ESTÁ CHEIO?
-000048 EF2D F000      00093         GOTO DESLIGA_VALVULA;NÃO
-                      00094         ;SIM
-00004C B381           00095         BTFSC RECIP_BAIXO;RECIPIENTE DE BAIXO ESTA CHEIO?
-00004E EF2D F000      00096         GOTO DESLIGA_VALVULA;SIM
-                      00097         ;NÃO
+000046                00092         VERIFICA_VALVULA; LIGA APENAS SE CIMA=1, BAIXO=0
+000046 A182           00093         BTFSS RECIP_CIMA;RECIPIENTE DE CIMA ESTÁ CHEIO?
+000048 EF2D F000      00094         GOTO DESLIGA_VALVULA;NÃO
+                      00095         ;SIM
+00004C B382           00096         BTFSC RECIP_BAIXO;RECIPIENTE DE BAIXO ESTA CHEIO?
+00004E EF2D F000      00097         GOTO DESLIGA_VALVULA;SIM
+                      00098         ;NÃO
 Warning[207]: Found label after column 1. (LIGA_VALVULA)
-000052                00098         LIGA_VALVULA    
-000052 8581           00099         BSF VALVULA
-000054 8483           00100         BSF LED_VALVULA
-000056 EF31 F000      00101         GOTO TESTE_BOTOES
-                      00102         
+000052                00099         LIGA_VALVULA    
+000052 8582           00100         BSF VALVULA
+000054 8483           00101         BSF LED_VALVULA
+000056 EF31 F000      00102         GOTO TESTE_BOTOES
+                      00103         
 Warning[207]: Found label after column 1. (DESLIGA_VALVULA)
-00005A                00103         DESLIGA_VALVULA
-00005A 9581           00104         BCF VALVULA
-00005C 9483           00105         BCF LED_VALVULA
-00005E EF31 F000      00106         GOTO TESTE_BOTOES       
-                      00107 
+00005A                00104         DESLIGA_VALVULA
+00005A 9582           00105         BCF VALVULA
+00005C 9483           00106         BCF LED_VALVULA
+00005E EF31 F000      00107         GOTO TESTE_BOTOES       
+                      00108 
 Warning[207]: Found label after column 1. (TESTE_BOTOES)
-000062                00108         TESTE_BOTOES
-000062 0EFF           00109         MOVLW T_FILTRO
-000064 6F80           00110         MOVWF FILTRO_BOT
+000062                00109         TESTE_BOTOES
+000062 0EFF           00110         MOVLW T_FILTRO
+000064 6F80           00111         MOVWF FILTRO_BOT
 Warning[207]: Found label after column 1. (PRIMEIRO_BOTAO)
-000066                00111         PRIMEIRO_BOTAO
-000066 B681           00112         BTFSC BOTAO_CIMA;BOTAO DE CIMA ESTA PRESSIONADO?
-000068 EF43 F000      00113         GOTO PROXIMO_BOTAO;NÃO ESTÁ PRESSIONADO
-00006C 2F80           00114         DECFSZ FILTRO_BOT, 1;ESTÁ PRESSIOANDO
-00006E EF33 F000      00115         GOTO PRIMEIRO_BOTAO
-                      00116         ;REALMENTE ESTÁ PRESSIONADO
+000066                00112         PRIMEIRO_BOTAO
+000066 B681           00113         BTFSC BOTAO_CIMA;BOTAO DE CIMA ESTA PRESSIONADO?
+000068 EF43 F000      00114         GOTO PROXIMO_BOTAO;NÃO ESTÁ PRESSIONADO
+00006C 2F80           00115         DECFSZ FILTRO_BOT, 1;ESTÁ PRESSIOANDO
+00006E EF33 F000      00116         GOTO PRIMEIRO_BOTAO
+                      00117         ;REALMENTE ESTÁ PRESSIONADO
 Warning[207]: Found label after column 1. (PRENDE_BOTAO)
-000072                00117         PRENDE_BOTAO
-000072 A681           00118         BTFSS BOTAO_CIMA;BOTAO DE CIMA ESTA PRESSIONADO?
-000074 EF39 F000      00119         GOTO PRENDE_BOTAO;0 = SIM, CONTINUE TRAVADO
-                      00120         ;1=NÃO, PODE CONTINUAR
-000078 A181           00121         BTFSS RECIP_CIMA        
-00007A EF42 F000      00122         GOTO CIMA_VAZIO
-00007E 9181           00123         BCF RECIP_CIMA
-000080 EF43 F000      00124         GOTO PROXIMO_BOTAO
+000072                00118         PRENDE_BOTAO
+000072 A681           00119         BTFSS BOTAO_CIMA;BOTAO DE CIMA ESTA PRESSIONADO?
+000074 EF39 F000      00120         GOTO PRENDE_BOTAO;0 = SIM, CONTINUE TRAVADO
+                      00121         ;1=NÃO, PODE CONTINUAR
+000078 A182           00122         BTFSS RECIP_CIMA        
+00007A EF42 F000      00123         GOTO CIMA_VAZIO
+00007E 9182           00124         BCF RECIP_CIMA
+000080 EF43 F000      00125         GOTO PROXIMO_BOTAO
 Warning[207]: Found label after column 1. (CIMA_VAZIO)
-000084                00125         CIMA_VAZIO
-000084 8181           00126         BSF RECIP_CIMA
-                      00127         
+000084                00126         CIMA_VAZIO
+000084 8182           00127         BSF RECIP_CIMA
+                      00128         
 Warning[207]: Found label after column 1. (PROXIMO_BOTAO)
-000086                00128         PROXIMO_BOTAO
-000086 0EFF           00129         MOVLW T_FILTRO
-000088 6F80           00130         MOVWF FILTRO_BOT
+000086                00129         PROXIMO_BOTAO
+000086 0EFF           00130         MOVLW T_FILTRO
+000088 6F81           00131         MOVWF FILTRO_BOT2
 Warning[207]: Found label after column 1. (SEGUNDO_FILTRO_BOT)
-00008A                00131         SEGUNDO_FILTRO_BOT      
-00008A B881           00132         BTFSC BOTAO_BAIXO
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE  4
+00008A                00132         SEGUNDO_FILTRO_BOT      
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-00008C EF0D F000      00133         GOTO MAIN;NÃO ESTÁ PRESSIONADO
-000090 2F80           00134         DECFSZ FILTRO_BOT, 1;ESTÁ PRESSIOANDO
-000092 EF45 F000      00135         GOTO SEGUNDO_FILTRO_BOT
-                      00136         ;REALMENTE ESTÁ PRESSIONADO
+00008A B881           00133         BTFSC BOTAO_BAIXO
+00008C EF0D F000      00134         GOTO MAIN;NÃO ESTÁ PRESSIONADO
+000090 2F81           00135         DECFSZ FILTRO_BOT2, 1;ESTÁ PRESSIOANDO
+000092 EF45 F000      00136         GOTO SEGUNDO_FILTRO_BOT
+                      00137         ;REALMENTE ESTÁ PRESSIONADO
 Warning[207]: Found label after column 1. (PRENDE_BOTAO2)
-000096                00137         PRENDE_BOTAO2
-000096 A681           00138         BTFSS BOTAO_CIMA;BOTAO DE CIMA ESTA PRESSIONADO?
-000098 EF4B F000      00139         GOTO PRENDE_BOTAO2;0 = SIM, CONTINUE TRAVADO
-                      00140         ;1=NÃO, PODE CONTINUAR
-00009C A381           00141         BTFSS RECIP_BAIXO
-00009E EF54 F000      00142         GOTO BAIXO_VAZIO
-0000A2 9381           00143         BCF RECIP_BAIXO
-0000A4 EF0D F000      00144         GOTO MAIN
+000096                00138         PRENDE_BOTAO2
+000096 A881           00139         BTFSS BOTAO_BAIXO;BOTAO DE BAIXO ESTA PRESSIONADO?
+000098 EF4B F000      00140         GOTO PRENDE_BOTAO2;0 = SIM, CONTINUE TRAVADO
+                      00141         ;1=NÃO, PODE CONTINUAR
+00009C A382           00142         BTFSS RECIP_BAIXO
+00009E EF54 F000      00143         GOTO BAIXO_VAZIO
+0000A2 9382           00144         BCF RECIP_BAIXO
+0000A4 EF0D F000      00145         GOTO MAIN
 Warning[207]: Found label after column 1. (BAIXO_VAZIO)
-0000A8                00145         BAIXO_VAZIO
-0000A8 8181           00146         BSF RECIP_CIMA
-0000AA EF0D F000      00147         GOTO MAIN
+0000A8                00146         BAIXO_VAZIO
+0000A8 8382           00147         BSF RECIP_BAIXO
+0000AA EF0D F000      00148         GOTO MAIN
 Warning[205]: Found directive in column 1. (END)
-                      00148 END
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE  5
+                      00149 END
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE  5
 
 
 SYMBOL TABLE
@@ -259,7 +260,7 @@ CCP1M3                            00000003
 CCP1X                             00000005
 CCP1Y                             00000004
 CCP2A                             00000003
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE  6
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE  6
 
 
 SYMBOL TABLE
@@ -318,7 +319,7 @@ DESLIGA_VALVULA                   0000005A
 DONE                              00000002
 D_A                               00000005
 D_NOT_A                           00000005
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE  7
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE  7
 
 
 SYMBOL TABLE
@@ -335,6 +336,7 @@ EEPGD                             00000007
 FAST                              00000001
 FERR                              00000002
 FILTRO_BOT                        00000080
+FILTRO_BOT2                       00000081
 FREE                              00000004
 FSR0                              00000000
 FSR0H                             00000FEA
@@ -376,13 +378,13 @@ INT1IE                            00000003
 INT1IF                            00000000
 INT1IP                            00000006
 INT1P                             00000006
-INT2                              00000002
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE  8
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE  8
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+INT2                              00000002
 INT2E                             00000004
 INT2F                             00000001
 INT2IE                            00000004
@@ -435,13 +437,13 @@ LATD4                             00000004
 LATD5                             00000005
 LATD6                             00000006
 LATD7                             00000007
-LATE                              00000F8D
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE  9
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE  9
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+LATE                              00000F8D
 LATE0                             00000000
 LATE1                             00000001
 LATE2                             00000002
@@ -494,13 +496,13 @@ PCLATU                            00000FFB
 PD                                00000002
 PEIE                              00000006
 PEIE_GIEL                         00000006
-PEN                               00000002
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE 10
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE 10
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+PEN                               00000002
 PGC                               00000006
 PGD                               00000007
 PGM                               00000005
@@ -553,13 +555,13 @@ RA1                               00000001
 RA2                               00000002
 RA3                               00000003
 RA4                               00000004
-RA5                               00000005
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE 11
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE 11
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+RA5                               00000005
 RA6                               00000006
 RB0                               00000000
 RB1                               00000001
@@ -605,20 +607,20 @@ RE0                               00000000
 RE1                               00000001
 RE2                               00000002
 READ_WRITE                        00000002
-RECIPIENTES_E_VALVULA             00000081
+RECIPIENTES_E_VALVULA             00000082
 RECIP_BAIXO                       RECIPIENTES_E_VALVULA, 1
 RECIP_CIMA                        RECIPIENTES_E_VALVULA, 0
 RI                                00000004
 RSEN                              00000001
 RX                                00000007
 RX9                               00000006
-RX9D                              00000000
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE 12
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE 12
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+RX9D                              00000000
 R_NOT_W                           00000002
 R_W                               00000002
 S                                 00000003
@@ -671,13 +673,13 @@ T08BIT                            00000006
 T0CKI                             00000004
 T0CON                             00000FD5
 T0CS                              00000005
-T0IE                              00000005
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE 13
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE 13
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+T0IE                              00000005
 T0IF                              00000002
 T0IP                              00000002
 T0PS0                             00000000
@@ -730,13 +732,13 @@ TMR2IE                            00000001
 TMR2IF                            00000001
 TMR2IP                            00000001
 TMR2ON                            00000002
-TMR3                              00000FB2
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE 14
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE 14
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+TMR3                              00000FB2
 TMR3CS                            00000001
 TMR3H                             00000FB3
 TMR3IE                            00000001
@@ -789,13 +791,13 @@ TRISD5                            00000005
 TRISD6                            00000006
 TRISD7                            00000007
 TRISE                             00000F96
-TRISE0                            00000000
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE 15
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE 15
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+TRISE0                            00000000
 TRISE1                            00000001
 TRISE2                            00000002
 TRMT                              00000001
@@ -848,13 +850,13 @@ _CONFIG6L                         0030000A
 _CONFIG7H                         0030000D
 _CONFIG7L                         0030000C
 _CP0_OFF_5L                       000000FF
-_CP0_ON_5L                        000000FE
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE 16
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE 16
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+_CP0_ON_5L                        000000FE
 _CP1_OFF_5L                       000000FF
 _CP1_ON_5L                        000000FD
 _CP2_OFF_5L                       000000FF
@@ -907,13 +909,13 @@ _RCIO_OSC                         000000FF
 _RCIO_OSC_1H                      000000FF
 _RC_OSC                           000000FB
 _RC_OSC_1H                        000000FB
-_STVR_OFF_4L                      000000FE
-MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:01:16         PAGE 17
+MPASM  5.46                      NAC2_EX2.ASM   5-2-2022  20:34:01         PAGE 17
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
+_STVR_OFF_4L                      000000FE
 _STVR_ON_4L                       000000FF
 _WDTPS_128_2H                     000000FF
 _WDTPS_16_2H                      000000F9
