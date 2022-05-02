@@ -1,30 +1,38 @@
 MPLINK 4.43, Linker
-Linker Map File - Created Thu Apr 28 23:41:05 2022
+Linker Map File - Created Mon May 02 02:25:44 2022
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                    .org_0       code   0x000000    program   0x000000
-                   .org_1       code   0x000000    program   0x000034
+                   .org_1       code   0x000000    program   0x000090
 
 
 
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x000033      
-            52 out of 33048 program addresses used, program memory utilization is 0%
+                            0x000000    0x00008f      
+            144 out of 33048 program addresses used, program memory utilization is 0%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
+           BAIXO_COM_AGUA   0x00003e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+           BAIXO_SEM_AGUA   0x000046    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+              BAIXO_VAZIO   0x00008a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+            CIMA_COM_AGUA   0x00002e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+            CIMA_SEM_AGUA   0x000036    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+               CIMA_VAZIO   0x00006e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
                    INICIO   0x000004    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
-             LIBERAR_AGUA   0x00002a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
-                     MAIN   0x00000e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
-          VERIFICAR_BOTAO   0x00001c    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
-          VERIFICA_ESTADO   0x000016    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+                     MAIN   0x00001a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+           PRIMEIRO_BOTAO   0x000056    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+            PROXIMO_BOTAO   0x000070    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+       SEGUNDO_FILTRO_BOT   0x000072    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+              TESTA_BAIXO   0x000024    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+             TESTE_BOTOES   0x000052    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
 
 
 
@@ -32,9 +40,17 @@ Linker Map File - Created Thu Apr 28 23:41:05 2022
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
                    INICIO   0x000004    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
-                     MAIN   0x00000e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
-          VERIFICA_ESTADO   0x000016    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
-          VERIFICAR_BOTAO   0x00001c    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
-             LIBERAR_AGUA   0x00002a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+                     MAIN   0x00001a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+              TESTA_BAIXO   0x000024    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+            CIMA_COM_AGUA   0x00002e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+            CIMA_SEM_AGUA   0x000036    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+           BAIXO_COM_AGUA   0x00003e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+           BAIXO_SEM_AGUA   0x000046    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+             TESTE_BOTOES   0x000052    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+           PRIMEIRO_BOTAO   0x000056    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+               CIMA_VAZIO   0x00006e    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+            PROXIMO_BOTAO   0x000070    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+       SEGUNDO_FILTRO_BOT   0x000072    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
+              BAIXO_VAZIO   0x00008a    program     static F:\FIAP\4ECA\PCM\NAC02\NAC2_EX2\NAC2_EX2.asm
 
 
